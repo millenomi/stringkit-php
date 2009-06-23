@@ -18,6 +18,16 @@ class SKProxiesTests extends UnitTestCase {
 			$b->isEqualToString(SKStr('ell')));
 	}
 	
+	function testEncodingSubstring() {
+		$a = SKStr('HelloWorld');
+		$b = new SKSubstring($a, 1, 3);
+		
+		$enc = new SKASCIIEncoder();
+		$x = $enc->encode($b);
+		
+		$this->assertEqual($x, 'ell');
+	}
+	
 	function testOverlongSubstring() {
 		$a = SKStr('HelloWorld');
 		$b = new SKSubstring($a, 1, 20000);

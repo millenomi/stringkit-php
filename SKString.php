@@ -28,6 +28,10 @@ abstract class SKString {
 		return null;
 	}
 	
+	public function fastBufferOfEncodingFromIndexWithLength($encoding, $index, $length) {
+		return null;
+	}
+	
 	public function fastSubstringsOrBuffersWithEncoding($encoding) {
 		$x = $this->fastBufferOfEncoding($encoding);
 		return $x? array($x) : array($this);

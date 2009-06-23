@@ -39,5 +39,15 @@ class SKSubstring extends SKString {
 	function substring($index, $length) {
 		$this->getRangeInOriginalStringForRange($index, $length);
 		return $this->String->substring($index, $length);
-	}	
+	}
+	
+	public function fastBufferOfEncodingFromIndexWithLength($encoding, $index, $length) {
+		$this->getRangeInOriginalStringForRange($index, $length);
+		return $this->String->fastBufferOfEncodingFromIndexWithLength($encoding, $index, $length);
+	}
+	
+	public function fastBufferOfEncoding($encoding) {
+		$buf = $this->String->fastBufferOfEncodingFromIndexWithLength($encoding, $this->Index, $this->Length);
+		return $buf;
+	}
 }

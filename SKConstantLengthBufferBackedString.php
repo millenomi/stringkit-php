@@ -29,6 +29,17 @@ abstract class SKConstantLengthBufferBackedString extends SKBufferBackedString {
 		// echo __FUNCTION__ . ": buffer len = " . strlen($this->Buffer) . ", pace = " . $this->Pace . "\n";
 		return strlen($this->Buffer) / $this->Pace;
 	}
+	
+	public function fastBufferOfEncodingFromIndexWithLength($encoding, $index, $length) {
+		if ($this->bufferConformsToEncoding($encoding)) {
+			$indexByte = $index * $this->Pace;
+			$lengthInBytes = $length * $this->Pace;
+			
+			$subbuf = substr($this->Buffer, $indexByte, $lengthInBytes);
+			return $subbuf;
+		} else
+			return parent::fastBufferOfEncodingFromIndexWithLength($encoding, $index, $length);
+	}
 }
 
 class _SKConstantLengthEncodedCharactersIterator implements SKCharactersIterator {
