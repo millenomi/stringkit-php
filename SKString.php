@@ -1,13 +1,13 @@
 <?php
 
 abstract class SKString {
-	abstract function iteratorFromIndexWithLength($index, $length);
+	abstract function iteratorWithRange($index, $length);
 	abstract function length();
 	
 	protected function __construct() {}
 	
 	function iterator() {
-		return $this->iteratorFromIndexWithLength(0, $this->length());
+		return $this->iteratorWithRange(0, $this->length());
 	}
 	
 	function isEqualToString($string) {
@@ -28,7 +28,7 @@ abstract class SKString {
 		return null;
 	}
 	
-	public function fastBufferOfEncodingFromIndexWithLength($encoding, $index, $length) {
+	public function fastBufferOfEncodingWithRange($encoding, $index, $length) {
 		return null;
 	}
 	

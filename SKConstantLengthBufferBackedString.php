@@ -21,7 +21,7 @@ abstract class SKConstantLengthBufferBackedString extends SKBufferBackedString {
 		return $this->codePointForBufferSegment($this->bufferSegmentForCharacterIndex($i));
 	}
 	
-	function iteratorFromIndexWithLength($index, $length) {
+	function iteratorWithRange($index, $length) {
 		return new _SKConstantLengthEncodedCharactersIterator($this, $index, $length);
 	}
 	
@@ -30,7 +30,7 @@ abstract class SKConstantLengthBufferBackedString extends SKBufferBackedString {
 		return strlen($this->Buffer) / $this->Pace;
 	}
 	
-	public function fastBufferOfEncodingFromIndexWithLength($encoding, $index, $length) {
+	public function fastBufferOfEncodingWithRange($encoding, $index, $length) {
 		if ($this->bufferConformsToEncoding($encoding)) {
 			$indexByte = $index * $this->Pace;
 			$lengthInBytes = $length * $this->Pace;
@@ -38,7 +38,7 @@ abstract class SKConstantLengthBufferBackedString extends SKBufferBackedString {
 			$subbuf = substr($this->Buffer, $indexByte, $lengthInBytes);
 			return $subbuf;
 		} else
-			return parent::fastBufferOfEncodingFromIndexWithLength($encoding, $index, $length);
+			return parent::fastBufferOfEncodingWithRange($encoding, $index, $length);
 	}
 }
 

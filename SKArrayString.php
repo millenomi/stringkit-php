@@ -8,7 +8,7 @@ class SKArrayString extends SKString {
 		$this->CodePoints = $codePoints;
 	}
 	
-	function iteratorFromIndexWithLength($index, $length) {
+	function iteratorWithRange($index, $length) {
 		return new _SKArrayCharactersIterator($this->CodePoints, $index, $length);
 	}
 	

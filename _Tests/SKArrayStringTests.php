@@ -19,7 +19,7 @@ class SKArrayStringTests extends UnitTestCase {
 	}
 	
 	function testIterateSome() {
-		$iterator = $this->HelloString->iteratorFromIndexWithLength(1, 3);
+		$iterator = $this->HelloString->iteratorWithRange(1, 3);
 		$a = array();
 		
 		while ($iterator->hasNext()) {

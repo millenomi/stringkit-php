@@ -24,12 +24,12 @@ class SKSubstring extends SKString {
 	}
 	
 	function iterator() {
-		return $this->String->iteratorFromIndexWithLength($this->Index, $this->Length);
+		return $this->String->iteratorWithRange($this->Index, $this->Length);
 	}
 	
-	function iteratorFromIndexWithLength($index, $length) {
+	function iteratorWithRange($index, $length) {
 		$this->getRangeInOriginalStringForRange($index, $length);
-		return $this->String->iteratorFromIndexWithLength($index, $length);
+		return $this->String->iteratorWithRange($index, $length);
 	}
 	
 	function length() {
@@ -41,13 +41,13 @@ class SKSubstring extends SKString {
 		return $this->String->substring($index, $length);
 	}
 	
-	public function fastBufferOfEncodingFromIndexWithLength($encoding, $index, $length) {
+	public function fastBufferOfEncodingWithRange($encoding, $index, $length) {
 		$this->getRangeInOriginalStringForRange($index, $length);
-		return $this->String->fastBufferOfEncodingFromIndexWithLength($encoding, $index, $length);
+		return $this->String->fastBufferOfEncodingWithRange($encoding, $index, $length);
 	}
 	
 	public function fastBufferOfEncoding($encoding) {
-		$buf = $this->String->fastBufferOfEncodingFromIndexWithLength($encoding, $this->Index, $this->Length);
+		$buf = $this->String->fastBufferOfEncodingWithRange($encoding, $this->Index, $this->Length);
 		return $buf;
 	}
 }
