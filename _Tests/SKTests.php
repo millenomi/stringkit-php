@@ -9,12 +9,14 @@ require_once dirname(__FILE__) . DIRECTORY_SEPARATOR .
 	'SK.php';
 	
 chdir(dirname(__FILE__));
-	
+
 class SKTests extends TestSuite {
 	function __construct() {
 		parent::TestSuite('All StringKit Tests');
 		
 		$this->addFile('SKArrayStringTests.php');
 		$this->addFile('SKAccumulatingEncoderTests.php');
+		$this->addFile('SKConstantStringsTest.php');
+		$this->addFile('SKFastLanesTests.php');
 	}
 }

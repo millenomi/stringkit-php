@@ -4,7 +4,7 @@ abstract class SKString {
 	abstract function iteratorFromIndexWithLength($index, $length);
 	abstract function length();
 	
-	function __construct() {}
+	protected function __construct() {}
 	
 	function iterator() {
 		return $this->iteratorFromIndexWithLength(0, $this->length());
@@ -22,5 +22,9 @@ abstract class SKString {
 		}
 		
 		return !$a->hasNext() && !$b->hasNext();
+	}
+	
+	public function fastBufferOfEncoding($encoding) {
+		return null;
 	}
 }

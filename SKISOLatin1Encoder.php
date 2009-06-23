@@ -7,4 +7,9 @@ class SKISOLatin1Encoder extends SKAccumulatingEncoder {
 			
 		return chr($cp);
 	}
+	
+	function encode($string) {
+		$b = $string->fastBufferOfEncoding(kSKEncoding_ISOLatin1);
+		return $b? $b : parent::encode($string);
+	}
 }

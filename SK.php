@@ -8,6 +8,5 @@ function SKAutoloadClass($class) {
 	require_once kSKStringKitHome . DIRECTORY_SEPARATOR . "$class.php";
 }
 
-require kSKStringKitHome . DIRECTORY_SEPARATOR . 'SKFunctions.php';
-
+require kSKStringKitHome . DIRECTORY_SEPARATOR . 'SKDefinitions.php';
 spl_autoload_register('SKAutoloadClass');

@@ -31,13 +31,13 @@ class _SKArrayCharactersIterator implements SKCharactersIterator {
 		$this->LastIndex = $this->Current + $length - 1;
 		if ($this->LastIndex >= sizeof($array))
 			$this->LastIndex = sizeof($array) - 1;
-		echo __FUNCTION__ . ": iterates from {$this->Current} to {$this->LastIndex} included.\n";
-		echo "for index $index, length $length\n";
+		// echo __FUNCTION__ . ": iterates from {$this->Current} to {$this->LastIndex} included.\n";
+		// 		echo "for index $index, length $length\n";
 	}
 	
 	function hasNext() {
 		$result = $this->Current <= $this->LastIndex;
-		echo __FUNCTION__ . ": {$this->Current} <= {$this->LastIndex} ($result)\n";
+		// echo __FUNCTION__ . ": {$this->Current} <= {$this->LastIndex} ($result)\n";
 		return $result;
 	}
 	
