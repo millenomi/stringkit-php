@@ -39,5 +39,5 @@ class SKSubstring extends SKString {
 	function substring($index, $length) {
 		$this->getRangeInOriginalStringForRange($index, $length);
 		return $this->String->substring($index, $length);
-	}
+	}	
 }

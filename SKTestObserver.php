@@ -36,13 +36,13 @@ class SKTestObserver {
 	
 	function observeEvent($eventCode, $arguments) {
 		$x = $arguments;
-		$x['EventCode'] = $eventCode;
+		$x['* EventCode'] = $eventCode;
 		$this->ObservedEvents[] = $x;
 	}
 	
 	function hasObserved($eventCode, $arguments) {
 		$x = $arguments;
-		$x['EventCode'] = $eventCode;
+		$x['* EventCode'] = $eventCode;
 		
 		foreach ($this->ObservedEvents as $event) {
 			if ($event == $x)

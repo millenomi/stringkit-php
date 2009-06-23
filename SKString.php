@@ -28,6 +28,11 @@ abstract class SKString {
 		return null;
 	}
 	
+	public function fastSubstringsOrBuffersWithEncoding($encoding) {
+		$x = $this->fastBufferOfEncoding($encoding);
+		return $x? array($x) : array($this);
+	}
+	
 	public function substring($index, $length) {
 		return new SKSubstring($this, $index, $length);
 	}
