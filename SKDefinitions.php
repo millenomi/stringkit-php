@@ -20,3 +20,15 @@ function SKStr($a) {
 function SKStr_Latin1($a) {
 	return new SKISOLatin1ConstantString($a, 0);
 }
+
+function _SKDebugCodePointsAsArray($s) {
+	$cp = array();
+	$x = $s->iterator();
+	while ($x->hasNext())
+		$cp[] = $x->next();
+	return $cp;
+}
+
+function _SKDebugDumpCodePoints($s) {
+	var_dump(_SKDebugCodePointsAsArray($s));
+}

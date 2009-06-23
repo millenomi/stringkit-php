@@ -27,4 +27,8 @@ abstract class SKString {
 	public function fastBufferOfEncoding($encoding) {
 		return null;
 	}
+	
+	public function substring($index, $length) {
+		return new SKSubstring($this, $index, $length);
+	}
 }
