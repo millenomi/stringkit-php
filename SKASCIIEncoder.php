@@ -11,26 +11,13 @@ class SKASCIIEncoder extends SKAccumulatingEncoder {
 	function encode($string) {
 		$parts = $string->fastSubstringsOrBuffersWithEncoding(kSKEncoding_ASCII);
 		$buf = '';
-		$fastlaned = false;
 		
 		foreach ($parts as $part) {
-			if (is_object($part)) {
+			if (is_object($part))
 				$buf .= parent::encode($part);
-			} else {
+			else
 				$buf .= $part;
-				$fastlaned = true;
-			}
 		}
-		
-		$observer = SKTestObserver::currentObserver();
-		if ($fastlaned && $observer) $observer->observeEvent(
-			SKTestObserver::DidUseFastBufferOfEncodingFastLane,
-			array(
-				SKTestObserver::StringObject => $string,
-				SKTestObserver::EncoderObject => $this,
-				SKTestObserver::EncodingName => kSKEncoding_ASCII
-			)
-		);
 		
 		return $buf;
 	}

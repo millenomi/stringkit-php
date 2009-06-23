@@ -17,7 +17,6 @@ class SKTests extends TestSuite {
 		$this->addFile('SKArrayStringTests.php');
 		$this->addFile('SKAccumulatingEncoderTests.php');
 		$this->addFile('SKConstantStringsTest.php');
-		$this->addFile('SKFastLanesTests.php');
 		$this->addFile('SKProxiesTests.php');
 	}
 }
